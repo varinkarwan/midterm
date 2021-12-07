@@ -22,7 +22,7 @@ class _ListScreenState extends State<ListScreen> {
           CircleAvatar(
             backgroundColor: Colors.blue.shade200,
             child: Text(
-              '4',
+              '3',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
             ),
           ),
@@ -32,7 +32,7 @@ class _ListScreenState extends State<ListScreen> {
         ],
       ),
       body: ListView.separated(
-        itemCount: 4,
+        itemCount: 3,
         separatorBuilder: (context, index) => Divider(
           color: Colors.blueGrey,
         ),

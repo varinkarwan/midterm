@@ -4,15 +4,20 @@
 
 import 'package:flutter/material.dart';
 
-// import '../models/note.dart';
+import '../models/note.dart';
 
 class NoteScreen extends StatelessWidget {
+  Note currentNote;
+  String chosen;
+  NoteScreen({this.currentNote, this.chosen});
+  //NoteScreen.copy(this.currentNote, this.chosen, {String chosen});
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
         centerTitle: true,
-        title: Text('Note Screen App Bar Title'),
+        title: Text(chosen.toString()),
         actions: [
           IconButton(
               icon: Icon(
@@ -25,7 +30,10 @@ class NoteScreen extends StatelessWidget {
                 Icons.cancel_sharp,
                 size: 30,
               ),
-              onPressed: () {}),
+              onPressed: () {Navigator.push(
+        context,     
+        MaterialPageRoute(builder: (context) => NoteScreen()),
+      );}),
         ],
       ),
       body: Container(
@@ -33,8 +41,8 @@ class NoteScreen extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              initialValue: null,
-              enabled: true,
+              initialValue: currentNote.title,
+              enabled: false,
               decoration: InputDecoration(
                 hintText: 'Type the title here',
               ),
